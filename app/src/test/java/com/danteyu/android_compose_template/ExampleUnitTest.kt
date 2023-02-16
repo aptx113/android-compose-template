@@ -1,4 +1,4 @@
-package com.danteyu.android_template_compose
+package com.danteyu.android_compose_template
 
 import org.junit.Test
 
