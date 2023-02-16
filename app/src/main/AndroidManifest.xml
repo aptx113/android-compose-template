@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AndroidTemplateCompose"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name="com.danteyu.android_compose_template.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AndroidTemplateCompose">
             <intent-filter>

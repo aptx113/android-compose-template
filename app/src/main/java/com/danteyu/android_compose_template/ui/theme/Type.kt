@@ -1,4 +1,4 @@
-package com.danteyu.android_template_compose.ui.theme
+package com.danteyu.android_compose_template.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
