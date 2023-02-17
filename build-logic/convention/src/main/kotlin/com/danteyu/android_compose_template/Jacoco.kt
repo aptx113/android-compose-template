@@ -1,7 +1,8 @@
 package com.danteyu.android_compose_template
 
 import com.android.build.api.variant.AndroidComponentsExtension
-import com.android.build.gradle.internal.res.shrinker.NoDebugReporter.report
+import com.danteyu.android_compose_template.constants.LibsConst.LIBS
+import com.danteyu.android_compose_template.constants.VersionsConst.JACOCO
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.api.tasks.testing.Test
@@ -22,9 +23,9 @@ private val coverageExclusions = listOf(
 )
 
 internal fun Project.configureJacoco(androidComponentsExtension: AndroidComponentsExtension<*, *, *>) {
-    val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+    val libs = extensions.getByType<VersionCatalogsExtension>().named(LIBS)
 
-    configure<JacocoPluginExtension> { toolVersion = libs.findVersion("jacoco").get().toString() }
+    configure<JacocoPluginExtension> { toolVersion = libs.findVersion(JACOCO).get().toString() }
 
     val jacocoTestReport = tasks.create("jacocoTestReport")
 

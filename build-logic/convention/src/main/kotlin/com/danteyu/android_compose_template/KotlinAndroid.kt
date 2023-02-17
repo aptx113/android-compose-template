@@ -1,6 +1,8 @@
 package com.danteyu.android_compose_template
 
 import com.android.build.api.dsl.CommonExtension
+import com.danteyu.android_compose_template.constants.LibsConst.ANDROID_DESUGAR_JDK_LIBS
+import com.danteyu.android_compose_template.constants.LibsConst.LIBS
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -39,9 +41,9 @@ internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension<*, 
         }
     }
 
-    val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+    val libs = extensions.getByType<VersionCatalogsExtension>().named(LIBS)
 
-    dependencies { add("coreLibraryDesugaring", libs.findLibrary("android.desugarJdkLibs").get()) }
+    dependencies { add("coreLibraryDesugaring", libs.findLibrary(ANDROID_DESUGAR_JDK_LIBS).get()) }
 }
 
 fun CommonExtension<*, *, *, *>.kotlinOptions(block: KotlinJvmOptions.() -> Unit) {

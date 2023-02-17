@@ -1,6 +1,11 @@
 package com.danteyu.android_compose_template
 
 import com.android.build.api.dsl.CommonExtension
+import com.danteyu.android_compose_template.constants.LibsConst.ANDROID_TEST_IMPLEMENTATION
+import com.danteyu.android_compose_template.constants.LibsConst.ANDROIDX_COMPOSE_BOM
+import com.danteyu.android_compose_template.constants.LibsConst.IMPLEMENTATION
+import com.danteyu.android_compose_template.constants.LibsConst.LIBS
+import com.danteyu.android_compose_template.constants.VersionsConst.ANDROIDX_COMPOSE_COMPILER
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.dependencies
@@ -8,7 +13,7 @@ import org.gradle.kotlin.dsl.getByType
 import java.io.File
 
 internal fun Project.configureAndroidCompose(commonExtension: CommonExtension<*, *, *, *>) {
-    val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+    val libs = extensions.getByType<VersionCatalogsExtension>().named(LIBS)
 
     commonExtension.apply {
         buildFeatures {
@@ -17,7 +22,7 @@ internal fun Project.configureAndroidCompose(commonExtension: CommonExtension<*,
 
         composeOptions {
             kotlinCompilerExtensionVersion =
-                libs.findVersion("androidxComposeCompiler").get().toString()
+                libs.findVersion(ANDROIDX_COMPOSE_COMPILER).get().toString()
         }
 
         kotlinOptions {
@@ -25,9 +30,9 @@ internal fun Project.configureAndroidCompose(commonExtension: CommonExtension<*,
         }
 
         dependencies {
-            val bom = libs.findLibrary("androidx-compose-bom").get()
-            add("implementation", platform(bom))
-            add("androidTestImplementation", platform(bom))
+            val bom = libs.findLibrary(ANDROIDX_COMPOSE_BOM).get()
+            add(IMPLEMENTATION, platform(bom))
+            add(ANDROID_TEST_IMPLEMENTATION, platform(bom))
         }
     }
 }
