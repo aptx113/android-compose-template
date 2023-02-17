@@ -43,6 +43,18 @@ gradlePlugin {
             id = "app.android.library.jacoco"
             implementationClass = "AndroidLibraryJacocoConventionPlugin"
         }
+        register("androidTest") {
+            id = "app.android.test"
+            implementationClass = "AndroidTestConventionPlugin"
+        }
+        register("androidHilt") {
+            id = "app.android.hilt"
+            implementationClass = "AndroidHiltConventionPlugin"
+        }
+        register("androidRoom") {
+            id = "app.android.room"
+            implementationClass = "AndroidRoomConventionPlugin"
+        }
         register("androidFirebase") {
             id = "app.android.application.firebase"
             implementationClass = "AndroidApplicationFirebaseConventionPlugin"
