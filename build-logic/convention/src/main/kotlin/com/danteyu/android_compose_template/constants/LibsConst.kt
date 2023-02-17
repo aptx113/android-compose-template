@@ -3,7 +3,9 @@ package com.danteyu.android_compose_template.constants
 object LibsConst {
     const val LIBS = "libs"
     const val IMPLEMENTATION = "implementation"
+    const val TEST_IMPLEMENTATION = "testImplementation"
     const val ANDROID_TEST_IMPLEMENTATION = "androidTestImplementation"
+    const val TEST = "test"
 
     const val ANDROID_DESUGAR_JDK_LIBS = "android.desugarJdkLibs"
     const val ANDROIDX_COMPOSE_BOM = "androidx-compose-bom"
@@ -12,4 +14,5 @@ object LibsConst {
     const val FIREBASE_ANALYTICS = "firebase.analytics"
     const val FIREBASE_CRASHLYTICS = "firebase.crashlytics"
     const val FIREBASE_PERFORMANCE = "firebase.performance"
+    const val JUNIT4 = "junit4"
 }

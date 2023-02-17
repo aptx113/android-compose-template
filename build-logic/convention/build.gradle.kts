@@ -19,6 +19,37 @@ dependencies {
 
 gradlePlugin {
     plugins {
-
+        register("androidApplicationCompose"){
+            id = "app.android.application.compose"
+            implementationClass = "AndroidApplicationComposeConventionPlugin"
+        }
+        register("androidApplication") {
+            id = "app.android.application"
+            implementationClass = "AndroidApplicationConventionPlugin"
+        }
+        register("androidApplicationJacoco") {
+            id = "app.android.application.jacoco"
+            implementationClass = "AndroidApplicationJacocoConventionPlugin"
+        }
+        register("androidLibraryCompose") {
+            id = "app.android.library.compose"
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
+        register("androidLibrary") {
+            id = "app.android.library"
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
+        register("androidLibraryJacoco") {
+            id = "app.android.library.jacoco"
+            implementationClass = "AndroidLibraryJacocoConventionPlugin"
+        }
+        register("androidFirebase") {
+            id = "app.android.application.firebase"
+            implementationClass = "AndroidApplicationFirebaseConventionPlugin"
+        }
+        register("androidFlavors") {
+            id = "app.android.application.flavors"
+            implementationClass = "AndroidApplicationFlavorsConventionPlugin"
+        }
     }
 }
