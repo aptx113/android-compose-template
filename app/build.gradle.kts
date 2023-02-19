@@ -1,3 +1,4 @@
+import com.danteyu.android_compose_template.AppBuildType
 import com.danteyu.android_compose_template.config.DefaultConfig
 
 plugins {
@@ -10,6 +11,8 @@ plugins {
     id("app.android.application.firebase")
 }
 
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+
 android {
     defaultConfig {
         applicationId = DefaultConfig.APPLICATION_ID
@@ -19,6 +22,34 @@ android {
         testInstrumentationRunner = DefaultConfig.TEST_INSTRUMENTATION_RUNNER
         vectorDrawables {
             useSupportLibrary = true
+        }
+    }
+
+    buildTypes {
+        val debug by getting {
+            applicationIdSuffix = AppBuildType.DEBUG.applicationIdSuffix
+            signingConfig = signingConfigs.getByName("debug")
+        }
+
+        val release by getting {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            applicationIdSuffix = AppBuildType.RELEASE.applicationIdSuffix
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            if (keystorePropertiesFile.exists()) {
+                signingConfig = signingConfigs.getByName("release")
+            }
+        }
+        val benchmark by creating {
+            initWith(release)
+            matchingFallbacks.add("release")
+            signingConfig = signingConfigs.getByName("debug")
+
+            isMinifyEnabled = true
+            applicationIdSuffix = AppBuildType.BENCHMARK.applicationIdSuffix
         }
     }
     namespace = DefaultConfig.NAME_SPACE
