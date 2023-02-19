@@ -1,8 +1,33 @@
-//plugins {
-//    id 'com.android.application'
-//    id 'org.jetbrains.kotlin.android'
-//}
-//
+import com.danteyu.android_compose_template.config.DefaultConfig
+
+plugins {
+    id("app.android.application")
+    id("app.android.application.compose")
+    id("app.android.application.flavors")
+    id("app.android.application.jacoco")
+    id("app.android.hilt")
+    id("jacoco")
+    id("app.android.application.firebase")
+}
+
+android {
+    defaultConfig {
+        applicationId = DefaultConfig.APPLICATION_ID
+        versionCode = DefaultConfig.VERSION_CODE
+        versionName = DefaultConfig.VERSION_NAME
+
+        testInstrumentationRunner = DefaultConfig.TEST_INSTRUMENTATION_RUNNER
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+    }
+    namespace = DefaultConfig.NAME_SPACE
+}
+
+dependencies {
+
+}
+
 //android {
 //    namespace 'com.danteyu.android_template_compose'
 //    compileSdk 33
