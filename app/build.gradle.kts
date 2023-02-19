@@ -28,6 +28,8 @@ android {
     buildTypes {
         val debug by getting {
             applicationIdSuffix = AppBuildType.DEBUG.applicationIdSuffix
+            enableUnitTestCoverage = true
+            enableAndroidTestCoverage = true
             signingConfig = signingConfigs.getByName("debug")
         }
 
@@ -51,6 +53,15 @@ android {
             isMinifyEnabled = true
             applicationIdSuffix = AppBuildType.BENCHMARK.applicationIdSuffix
         }
+    }
+
+    packagingOptions {
+        resources {
+            excludes.add("/META-INF/{AL2.0,LGPL2.1}")
+        }
+    }
+    testOptions {
+        unitTests { isIncludeAndroidResources = true }
     }
     namespace = DefaultConfig.NAME_SPACE
 }
