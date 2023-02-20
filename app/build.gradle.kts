@@ -8,7 +8,6 @@ plugins {
     id("app.android.application.jacoco")
     id("app.android.hilt")
     id("jacoco")
-    id("app.android.application.firebase")
 }
 
 val keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -87,4 +86,10 @@ dependencies {
     implementation(libs.androidx.profileinstaller)
 
     implementation(libs.coil.kt)
+}
+
+configurations.configureEach {
+    resolutionStrategy {
+        force(libs.junit4)
+    }
 }
