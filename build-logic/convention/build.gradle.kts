@@ -9,6 +9,12 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
+repositories {
+    google()
+    gradlePluginPortal()
+    mavenCentral()
+}
+
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
@@ -42,6 +48,18 @@ gradlePlugin {
         register("androidLibraryJacoco") {
             id = "app.android.library.jacoco"
             implementationClass = "AndroidLibraryJacocoConventionPlugin"
+        }
+        register("androidTest") {
+            id = "app.android.test"
+            implementationClass = "AndroidTestConventionPlugin"
+        }
+        register("androidHilt") {
+            id = "app.android.hilt"
+            implementationClass = "AndroidHiltConventionPlugin"
+        }
+        register("androidRoom") {
+            id = "app.android.room"
+            implementationClass = "AndroidRoomConventionPlugin"
         }
         register("androidFirebase") {
             id = "app.android.application.firebase"
