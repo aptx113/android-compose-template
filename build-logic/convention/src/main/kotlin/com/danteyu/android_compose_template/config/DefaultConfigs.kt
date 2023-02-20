@@ -6,4 +6,6 @@ object DefaultConfigs {
     const val VERSION_NAME = "1.0.0"
     const val NAME_SPACE = "com.danteyu.android_compose_template"
     const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
+
+    const val DESIGN_SYSTEM_NAME_SPACE = "com.danteyu.android_compose_template.core.designsystem"
 }

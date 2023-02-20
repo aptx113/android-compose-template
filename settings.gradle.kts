@@ -16,5 +16,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Android-Compose-Template"
 include(":app")
+include(":core:designsystem")
+
 include(":lint")
 
