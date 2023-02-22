@@ -1,28 +1,22 @@
 package com.danteyu.android_compose_template.core.designsystem.component
 
-import android.content.res.Configuration
 import androidx.compose.foundation.layout.Box
-import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.LocalAbsoluteTonalElevation
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.danteyu.android_compose_template.core.designsystem.theme.AppTheme
-import com.danteyu.android_compose_template.core.designsystem.theme.GradientColors
-
-import com.danteyu.android_compose_template.core.designsystem.theme.LocalBackgroundTheme
-import com.danteyu.android_compose_template.core.designsystem.theme.LocalGradientColors
+import com.danteyu.android_compose_template.core.designsystem.theme.*
 import kotlin.math.tan
 
 @Composable
@@ -70,7 +64,6 @@ fun AppGradientBackground(
                 )
                 val start = Offset(size.width / 2 + offset / 2, 0f)
                 val end = Offset(size.width / 2 - offset / 2, size.height)
-
                 // Create the top gradient that fades out after the halfway point vertically
                 val topGradient = Brush.linearGradient(
                     0f to if (currentTopColor == Color.Unspecified) {
@@ -105,10 +98,6 @@ fun AppGradientBackground(
         }
     }
 }
-
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, name = "Light theme")
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, name = "Dark theme")
-annotation class ThemePreviews
 
 @ThemePreviews
 @Composable
