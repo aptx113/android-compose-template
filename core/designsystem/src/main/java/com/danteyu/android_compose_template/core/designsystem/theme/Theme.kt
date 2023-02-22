@@ -163,7 +163,10 @@ fun AppTheme(
         else -> defaultGradientColors
     }
 
-    val defaultBackgroundTheme = BackgroundTheme(color = colorScheme.surface, tonalElevation = 2.dp)
+    val defaultBackgroundTheme = BackgroundTheme(
+        color = colorScheme.surface,
+        tonalElevation = 2.dp,
+    )
     val backgroundTheme = when {
         androidTheme -> if (darkTheme) DarkAndroidBackgroundTheme else LightAndroidBackgroundTheme
         else -> defaultBackgroundTheme
@@ -175,7 +178,8 @@ fun AppTheme(
     }
 
     CompositionLocalProvider(
-        LocalGradientColors provides gradientColors, LocalBackgroundTheme provides backgroundTheme,
+        LocalGradientColors provides gradientColors,
+        LocalBackgroundTheme provides backgroundTheme,
         LocalTintTheme provides tintTheme
     ) {
         MaterialTheme(
